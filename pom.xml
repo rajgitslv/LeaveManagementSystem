@@ -11,7 +11,7 @@
     <groupId>com.leavemanagementsystem</groupId>
     <artifactId>LeaveManagementSystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>LeaveManagementSystem</name>
     <description>Demo project for LeaveManagementSystem</description>
     <url/>

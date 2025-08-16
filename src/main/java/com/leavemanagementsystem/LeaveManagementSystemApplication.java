@@ -1,4 +1,4 @@
-package com.leavemanagementsystem.LeaveManagementSystem;
+package com.leavemanagementsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -28,8 +28,7 @@ public class LeaveManagementController {
 
     @GetMapping("/employees/{employeeId}")
     public Optional<Employee> getEmployeeById(@PathVariable String employeeId) {
-        Optional<Employee> employee = employeeService.getEmployeeById(employeeId);
-        return employee;
+        return employeeService.getEmployeeById(employeeId);
     }
 
     @PostMapping("/employees")
