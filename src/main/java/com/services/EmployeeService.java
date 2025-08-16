@@ -14,13 +14,24 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public Optional<Employee> getEmployeeById(String employeeId) {
-        return employeeRepository.findById(employeeId);
-    }
-
     public List<Employee> getAllEmployees() {
         return (List<Employee>) employeeRepository.findAll();
     }
 
+    public Optional<Employee> getEmployeeById(String employeeId) {
+        return employeeRepository.findById(employeeId);
+    }
+
+    public Employee createNewEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
+    public Employee updateEmployee(String employeeId, Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
+    public void deleteEmployee(String employeeId) {
+        employeeRepository.deleteById(employeeId);
+    }
 
 }

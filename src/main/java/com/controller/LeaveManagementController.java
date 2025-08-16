@@ -2,6 +2,7 @@ package com.controller;
 
 import com.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.repository.EmployeeRepository;
 import com.services.EmployeeService;
@@ -27,7 +28,23 @@ public class LeaveManagementController {
 
     @GetMapping("/employees/{employeeId}")
     public Optional<Employee> getEmployeeById(@PathVariable String employeeId) {
-        return employeeService.getEmployeeById(employeeId);
+        Optional<Employee> employee = employeeService.getEmployeeById(employeeId);
+        return employee;
+    }
+
+    @PostMapping("/employees")
+    public Employee addEmployee(@RequestBody Employee employee) {
+        return employeeService.createNewEmployee(employee);
+    }
+
+    @PutMapping("/employees/{employeeId}")
+    public Employee updateEmployee(@PathVariable String employeeId, @RequestBody Employee employee) {
+        return employeeService.updateEmployee(employeeId, employee);
+    }
+
+    @DeleteMapping("/employees/{employeeId}")
+    public void deleteEmployee(@PathVariable String employeeId) {
+        employeeService.deleteEmployee(employeeId);
     }
 
 }
