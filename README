@@ -1,0 +1,73 @@
+--------------------------------------------------------------------------------
+
+├── Dockerfile
+├── compose.yaml
+├── pom.xml
+└── src
+    └── main
+        ├── java
+            └── com
+            │   ├── controller
+            │       └── LeaveManagementController.java
+            │   ├── entities
+            │       └── Employee.java
+            │   ├── leavemanagementsystem
+            │       └── LeaveManagementSystemApplication.java
+            │   ├── repository
+            │       └── EmployeeRepository.java
+            │   └── services
+            │       ├── EmployeeService.java
+            │       └── LeaveManagementService.java
+        └── resources
+            ├── application.properties
+            └── home.html
+
+--------------------------------------------------------------------------------
+/Dockerfile:
+--------------------------------------------------------------------------------
+ 1 | # Use a base image with a Java Runtime Environment (JRE)
+ 2 | FROM openjdk:24-jdk-slim
+ 3 |
+ 4 | # Set the working directory inside the container
+ 5 | WORKDIR /LeaveManagementSystem
+ 6 |
+ 7 | # Copy the Spring Boot application's JAR file into the container
+ 8 | # Assuming your build generates a JAR named 'your-application.jar' in the 'target' directory
+ 9 | COPY target/LeaveManagementSystem-0.0.1-SNAPSHOT.jar LeaveManagementSystem-0.0.1-SNAPSHOT.jar
+10 |
+11 | # Expose the port your Spring Boot application listens on (default is 8080)
+12 | EXPOSE 8080
+13 |
+14 | # Define the command to run your Spring Boot application
+15 | ENTRYPOINT ["java", "-jar", "app.jar"]
+
+--------------------------------------------------------------------------------
+/src/main/resources/application.properties:
+--------------------------------------------------------------------------------
+ 1 | spring.application.name=LeaveManagementSystem
+ 2 | spring.security.user.name=rajesh
+ 3 | spring.security.user.password=rajesh123
+ 4 |
+ 5 | spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+ 6 |
+ 7 | # Database connection URL
+ 8 | spring.datasource.url=jdbc:mysql://localhost:3306/LEAVE_MANAGEMENT_SYSTEM
+ 9 |
+10 | # Database username
+11 | spring.datasource.username=rajesh2
+12 |
+13 | # Database password
+14 | spring.datasource.password=rajesh2
+15 |
+16 | # JDBC Driver class name (often automatically detected)
+17 | spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+18 |
+19 |
+20 | # Hibernate dialect for MySQL (if using Spring Data JPA/Hibernate)
+21 | # spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+22 | # DDL auto mode for Hibernate (e.g., update, create, create-drop, none)
+23 | spring.jpa.hibernate.ddl-auto=update
+24 | # Show SQL statements in console (for debugging)
+25 | spring.jpa.show-sql=true
+
+--------------------------------------------------------------------------------

@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.leavemanagementsystem</groupId>
-    <artifactId>LeaveManagementSystem</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>leavemanagementsystem</artifactId>
+    <version>1.0</version>
     <packaging>jar</packaging>
-    <name>LeaveManagementSystem</name>
+    <name>leavemanagementsystem</name>
     <description>Demo project for LeaveManagementSystem</description>
     <url/>
     <licenses>
